@@ -1,0 +1,47 @@
+<div class="min-h-screen flex flex-col justify-between bg-gray-200">
+    <!-- Contenedor que agrupa la imagen y el formulario -->
+    <div class="flex flex-col justify-center items-center flex-grow">
+        <!-- Imagen centrada -->
+        <img src="assets/logoUniminuto.png" alt="Logo" class="w-1/2 md:w-1/4 lg:w-1/6 mb-20">
+        <!-- Formulario centrado -->
+        <form [formGroup]="form" (ngSubmit)="onSubmit()"
+            class="bg-white p-8 rounded-lg shadow-md w-full max-w-lg lg:max-w-2xl mx-auto flex flex-col items-center text-center">
+            <div class="mb-4 w-full">
+                <label for="email" class="block text-gray-700 text-sm font-bold mb-2">
+                    Correo académico:
+                </label>
+                <input type="email" id="email" formControlName="email"
+                    placeholder="Introduce tu correo @uniminuto.edu.co"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center" />
+                <div *ngIf="form.get('email')?.touched && form.get('email')?.hasError('required')"
+                    class="text-red-500 text-xs italic text-center">
+                    El campo es obligatorio.
+                </div>
+                <div *ngIf="form.get('email')?.touched && form.get('email')?.hasError('email')"
+                    class="text-red-500 text-xs italic text-center">
+                    Ingresa un email válido.
+                </div>
+                <div *ngIf="form.get('email')?.touched && form.get('email')?.hasError('domain')"
+                    class="text-red-500 text-xs italic text-center">
+                    El correo debe ser &#64;uniminuto.edu.co
+                </div>
+            </div>
+            <re-captcha class="mb-2" (resolved)="captcha($event || '')"
+                siteKey="6LcHplwqAAAAAO6NsrCiYXnOh4yHFmaOY4i6TokE"></re-captcha>
+
+            <button type="submit" [ngClass]="{
+                'bg-blue-500 text-white hover:bg-blue-700': form.valid,
+                'bg-gray-400 text-gray-200 cursor-not-allowed': form.invalid
+              }"
+                class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-2"
+                [disabled]="form.invalid || !captchaResponse">
+                Enviar
+            </button>
+        </form>
+        <div *ngIf="mensaje" class="text-red-500 font-bold mt-2">
+            {{ mensaje }}
+        </div>
+    </div>
+    <!-- Footer -->
+    <app-footer></app-footer>
+</div>

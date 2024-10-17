@@ -1,0 +1,17 @@
+<header class="flex justify-between items-center bg-gray-800">
+    <div class="flex justify-center w-full" [ngClass]="{'hidden': screenWidth < 262}">
+      <img src="assets/logoUniminuto_white.png" alt="Logo" class="h-10" />
+    </div>
+  
+    <div class="relative mx-auto" [ngClass]="{'mx-auto': screenWidth < 262}">
+      <button (click)="desplegable()" class="focus:outline-none">
+        <img src={{foto}} alt="Imagen de perfil" class="h-10 w-10 md:h-12 md:w-12 rounded-full" />
+      </button>
+      
+      <div *ngIf="desplegado" class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg">
+          <button (click)="cambiarFoto()" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left">Cambiar foto</button>
+        <button (click)="logout()" class="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left">Salir</button>
+      </div>
+    </div>
+  </header>
+  

@@ -1,0 +1,32 @@
+/* .flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: center;
+}
+
+.flex-items:nth-child(1) {
+    display: block;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 20px;
+    align-self: auto;
+    order: 1;
+}
+
+.flex-items:nth-child(2) {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+} */
+
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
