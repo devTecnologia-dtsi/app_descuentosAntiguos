@@ -1,6 +1,6 @@
 
 # Aplicación descuentos para antiguos
-Aplicación con un formulario que gestiona los descuentos de para los estudiantes antiguos.
+Aplicación con un formulario que gestiona los descuentos para los estudiantes antiguos.
 
 El proyecto es generado coh [Angular CLI](https://github.com/angular/angular-cli) versión 17.3.10.
 
@@ -18,6 +18,7 @@ El proyecto es generado coh [Angular CLI](https://github.com/angular/angular-cli
 ## Autores
 
 - [@iAndresMa](https://github.com/iAndresMa)
+- [@despitiadev](https://github.com/despitiadev)
 
 
 ## Licencias o servicios
@@ -32,7 +33,7 @@ A continuación se presentan las licencias de algunos sistemas que se usan para 
 ## Ambiente de pruebas
 A continuación se identifican los dominios de los ingresos al sistema, tener presente que para la descarga de reportes es a través admin
 
-- Link qa: [dominio del link](https://link_del_ambiente)
+- Link qa: [dominio del link](https://pruebas.uniminuto.edu/descuentos)
 - Link prod: [dominio del link](https://link_del_ambiente)
 - link reportes: [dominio del link](https://link_del_ambiente)
 

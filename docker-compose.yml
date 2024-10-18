@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  frontend:
+    build:
+      context: ./Frontend
+    ports:
+      - "4200:80" # El frontend estará accesible en el puerto 4200
+    depends_on:
+      - backend
+    networks:
+      - descuentos-network
+  backend:
+    build:
+      context: ./Backend
+    ports:
+      - "8080:80" # El backend estará accesible en el puerto 8080
+    environment:
+      MYSQL_HOST: 10.0.30.227
+      MYSQL_DATABASE: descuentos
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Jailton81*
+    volumes:
+      - doc-pdf:/var/www/src/documents/ # Volumen para almacenar los PDF
+    networks:
+      - descuentos-network
+volumes:
+  doc-pdf: # Volumen para almacenar los archivos PDF subidos
+networks:
+  app-network:
+    driver: bridge
