@@ -1,4 +1,4 @@
-version: '3.8'
+#version: '3.8'
 services:
   frontend:
     build:
@@ -9,11 +9,13 @@ services:
       - backend
     networks:
       - descuentos-network
+    restart: on-failure
+
   backend:
     build:
       context: ./Backend
     ports:
-      - "8080:80" # El backend estará accesible en el puerto 8080
+      - "8082:80" # El backend estará accesible en el puerto 8082
     environment:
       MYSQL_HOST: 10.0.30.227
       MYSQL_DATABASE: descuentos
@@ -23,8 +25,11 @@ services:
       - doc-pdf:/var/www/src/documents/ # Volumen para almacenar los PDF
     networks:
       - descuentos-network
+    restart: on-failure
+
 volumes:
   doc-pdf: # Volumen para almacenar los archivos PDF subidos
+
 networks:
-  app-network:
+  descuentos-network:
     driver: bridge
