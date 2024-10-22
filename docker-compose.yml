@@ -3,8 +3,9 @@ services:
   frontend:
     build:
       context: ./Frontend
+    container_name: frontend
     ports:
-      - "4200:80" # El frontend estará accesible en el puerto 4200
+      - "8005:80" # El frontend estará accesible en el puerto 4200
     depends_on:
       - backend
     networks:
@@ -14,8 +15,9 @@ services:
   backend:
     build:
       context: ./Backend
-    ports:
-      - "8083:80" # El backend estará accesible en el puerto 8082
+      container_name: backend
+    # ports:
+    #   - "8083:80" # El backend estará accesible en el puerto 8082
     environment:
       MYSQL_HOST: 10.0.30.227
       MYSQL_DATABASE: descuentos
@@ -26,10 +28,8 @@ services:
     networks:
       - descuentos-network
     restart: on-failure
-
 volumes:
   doc-pdf: # Volumen para almacenar los archivos PDF subidos
-
 networks:
   descuentos-network:
     driver: bridge

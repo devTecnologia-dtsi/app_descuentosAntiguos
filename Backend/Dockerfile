@@ -34,12 +34,12 @@ RUN echo '<VirtualHost *:80>\n\
     RewriteRule ^ index.php [L]\n\
     </Directory>\n\
     # Habilitar CORS\n\
-    <IfModule mod_headers.c>\n\
-    Header always set Access-Control-Allow-Origin "*"\n\
-    Header always set Access-Control-Allow-Methods "GET, POST, OPTIONS"\n\
-    Header always set Allow "GET, POST, OPTIONS"\n\
-    Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Frame-Options, Accept"\n\
-    </IfModule>\n\
+    <IfModule mod_headers.c> \
+    Header always set Access-Control-Allow-Origin "*" \n\
+    Header always set Access-Control-Allow-Methods "GET, POST, OPTIONS, PUT, DELETE" \n\
+    Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With" \n\
+    Header always set Access-Control-Expose-Headers "Authorization" \n\
+    </IfModule> \n\
     # Manejo de solicitudes OPTIONS\n\
     <IfModule mod_rewrite.c>\n\
     RewriteEngine On\n\
