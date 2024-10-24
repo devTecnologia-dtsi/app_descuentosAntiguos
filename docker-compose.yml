@@ -3,7 +3,6 @@ services:
   frontend:
     build:
       context: ./Frontend
-    container_name: frontend
     ports:
       - "8005:80" # El frontend estará accesible en el puerto 4200
     depends_on:
@@ -15,9 +14,8 @@ services:
   backend:
     build:
       context: ./Backend
-      container_name: backend
-    # ports:
-    #   - "8083:80" # El backend estará accesible en el puerto 8082
+    ports:
+      - "8006:80" # El backend estará accesible en el puerto 8082
     environment:
       MYSQL_HOST: 10.0.30.227
       MYSQL_DATABASE: descuentos
